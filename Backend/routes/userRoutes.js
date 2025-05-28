@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
-const auth = require("../middleware/authMiddleware");
+const auth = require("../middlewares/authMiddleware");
 
 // Match tutors for a student based on subject, availability, location
 router.get("/match/:studentId", auth, async (req, res) => {

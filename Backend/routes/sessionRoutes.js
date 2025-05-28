@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const auth = require("../middleware/authMiddleware");
+const auth = require("../middlewares/authMiddleware");
 const Session = require("../models/Session");
 
 // Add session routes (create, update, get, delete)
@@ -14,10 +14,17 @@ router.post("/", auth, async (req, res) => {
 });
 
 router.get("/", auth, async (req, res) => {
-  const sessions = await Session.find({
-    $or: [{ student: req.user.id }, { tutor: req.user.id }],
-  });
-  res.json(sessions);
+  try {
+    const sessions = await Session.find({
+      $or: [{ student: req.user.id }, { tutor: req.user.id }],
+    })
+      .populate("student", "name email") // populate name & email of student
+      .populate("tutor", "name email"); // populate name & email of tutor
+
+    res.json(sessions);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 module.exports = router;
