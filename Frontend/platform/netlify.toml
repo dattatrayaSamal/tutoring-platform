@@ -1,0 +1,8 @@
+[build]
+  base = "Frontend/platform"  # The base directory for the build (root of your project)
+  publish = "dist"  # Where Vite outputs the build (ensure this matches Vite's output directory)
+  command = "npm run build"  # The command to run for building the app
+
+[dev]
+  command = "npm run dev"  # Command to run the app in development mode
+  port = 3000  # The port to run locally
