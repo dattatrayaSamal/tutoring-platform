@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Logout function to clear the token and reset user state
+
   const logout = () => {
     localStorage.removeItem('token'); // Remove token from localStorage
     setUser(null); // Reset user state
