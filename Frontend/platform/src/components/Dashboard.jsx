@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "../services/api";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../context/Authcontext";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import {

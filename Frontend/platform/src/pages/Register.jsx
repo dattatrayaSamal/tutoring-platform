@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';  // Import AuthContext
+import { AuthContext } from '../context/Authcontext';  // Import AuthContext
 import axios from '../services/api';
 import onlineImage from '../assets/OnlineLearning-amico.png';
 
