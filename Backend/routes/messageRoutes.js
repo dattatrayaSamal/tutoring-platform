@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const auth = require("../middlewares/authMiddleware");
-const Message = require("../models/Message");
+const Message = require("../models/message");
 
 router.post("/", auth, async (req, res) => {
   const message = new Message(req.body);
