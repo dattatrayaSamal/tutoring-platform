@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/Authcontext"; // Ensure this hook is properly imported
+import { useAuth } from "../context/AuthContext"; // Ensure this hook is properly imported
 import onlineImage from "../assets/OnlineLearning-amico.png";
 
 export default function Login() {
