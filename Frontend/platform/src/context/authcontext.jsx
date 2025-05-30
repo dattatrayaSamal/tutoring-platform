@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       setLoading(false);  // Stop loading if error occurs
       console.error('Login error:', error);
-      throw error;  // Propagate the error
+      throw error; 
     }
   };
 
