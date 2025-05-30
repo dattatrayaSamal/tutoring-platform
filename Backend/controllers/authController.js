@@ -23,13 +23,17 @@ exports.registerUser = async (req, res) => {
     });
 
     res.status(201).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      role: user.role,
+      message: "Registration successful",
       token: generateToken(user._id),
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
     });
   } catch (err) {
+    console.error("Error during registration:", err);
     res.status(500).json({ message: err.message });
   }
 };
@@ -39,17 +43,23 @@ exports.loginUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
+
     if (user && (await bcrypt.compare(password, user.password))) {
-      return res.json({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
+      return res.status(200).json({
+        message: "Login successful",
         token: generateToken(user._id),
+        user: {
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+        },
       });
     }
+
     res.status(401).json({ message: "Invalid credentials" });
   } catch (err) {
+    console.error("Error during login:", err);
     res.status(500).json({ message: err.message });
   }
 };
