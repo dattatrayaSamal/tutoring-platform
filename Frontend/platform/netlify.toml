@@ -6,3 +6,9 @@
 [dev]
   command = "npm run dev"  # Command to run the app in development mode
   port = 3000  # The port to run locally
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+force = true
